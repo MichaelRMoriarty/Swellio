@@ -1,9 +1,4 @@
-const express = require('express');
-const fetch = require('isomorphic-fetch');
-const path = require('path');
-const app = express();
-const port = 3000;
-
+/* returns a jsob object with key-value form: {spotName: spotId} */
 const veniceId = '590927576a2e4300134fbed8';
 const breaks = {
   "Will Rogers State Beach": "5ff8a259222b7ff78169c757",
@@ -38,38 +33,39 @@ const breaks = {
   "PV Cove": "5842041f4e65fad6a770892d",
   "Cabrillo Beach": "5842041f4e65fad6a7708927",
   "Lunada Bay": "5842041f4e65fad6a770892c"
+};
+
+const optionsShape = (obj) => {
+  const arr = [];
+  for (var key in obj) {
+    arr.push({
+      name: key,
+      id: obj[key]
+    })
+  }
+
+  return arr;
 }
 
-app.use(express.json());
-app.use(express.static(path.join(__dirname, '../public')));
-
-// app.get('/', (req, res) => {
-//   fetch('https://services.surfline.com/search/site?q=venice+breakwater')
+console.log(optionsShape(breaks));
+// const getNearbySpots = (spotId) => {
+//   fetch(`https://services.surfline.com/kbyg/spots/nearby?spotId=${spotId}`)
 //     .then((response) => {
 //       if(response.status >= 400) {
 //         throw new Error("Bad response from server");
 //       }
 //       return response.json();
 //     })
-//     .then((data) => {
-//       res.send(data);
+//     .then(({data}) => {
+//       const { spots } = data;
+//       let results = {}
+//       for (var spot of spots) {
+//         // console.log(spot.name);
+//         // console.log(spot._id);
+//         if (spot.name && spot._id) {
+//           results[spot.name] = spot._id
+//         }
+//       }
+//       return results;
 //     })
 // })
-
-app.get('/report', (req, res) => {
-  fetch(`https://services.surfline.com/kbyg/spots/reports?spotId=${veniceId}`)
-    .then((response) => {
-      if(response.status >= 400) {
-        throw new Error("Bad response from server");
-      }
-      return response.json();
-    })
-    .then(({forecast}) => {
-      console.log(forecast);
-      res.send(forecast);
-    })
-})
-
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
-})
