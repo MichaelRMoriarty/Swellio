@@ -3,6 +3,8 @@ import GlobalStyle from './StyledComponents/GlobalStyle';
 import AppDiv from './StyledComponents/AppDiv';
 import FormContainer from './StyledComponents/FormContainer';
 import Form from './Form.jsx';
+// import waveLogo = require('../images/waveLogo.png';
+
 const App = () => {
   const [ name, setName ] = useState('');
   const [ email, setEmail ] = useState('');

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-// import ConditionsSelector from './ConditionsSelector';
+import axios from 'axios';
 import { Multiselect } from 'multiselect-react-dropdown';
 import FormContainer from './StyledComponents/FormContainer.js';
 import FormWrapper from './StyledComponents/FormWrapper.js';
@@ -7,16 +7,9 @@ import FormWrapper from './StyledComponents/FormWrapper.js';
 const Form = () => {
   const [ name, setName ] = useState('');
   const [ email, setEmail ] = useState('');
-  const [ phone, setPhone ] = useState('empty');
+  const [ phone, setPhone ] = useState('');
   const [ spots, setSpots ] = useState([]);
-  const [ condition, setCondition ] = useState({});
-
-  // const multiSelectCSS = {
-  //   multiselectContainer: { // To change css for multiselect (Width,height,etc..)
-  //     height: "100px",
-  //     color: "red",
-  //   }
-  // }
+  const [ condition, setCondition ] = useState('');
 
   const conditions = [
     { id: 4, name: 'POOR to FAIR' },
@@ -81,7 +74,7 @@ const Form = () => {
   }
 
   const onSelectSingle = (selectedList, selectedItem) => {
-    setCondition(selectedItem);
+    setCondition(selectedItem.id);
   }
 
   const onRemove = (selectedList, selectedItem) => {
@@ -98,7 +91,14 @@ const Form = () => {
       condition: condition
     }
 
-    console.log(data);
+    axios.post('/user', data, (err, res) => {
+      if (err) {
+        throw err;
+      }
+
+      console.log('success!');
+      return;
+    })
   };
 
   return(
@@ -117,7 +117,7 @@ const Form = () => {
             <Multiselect id="multiselect1" onSelect={onSelectMulti} onRemove={onRemove} options={options} hidePlaceholder={true} displayValue="name"/>
           </div>
           <div className="selector">
-            <Multiselect id="singleselect1" onSelect={onSelectSingle} options={conditions} singleSelect={true}displayValue="name"/>
+            <Multiselect id="singleselect1" onSelect={onSelectSingle} options={conditions} singleSelect={true} displayValue="name"/>
           </div>
           <button type="submit" value="Submit">Sign up!</button>
         </FormWrapper>

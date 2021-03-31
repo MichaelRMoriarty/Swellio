@@ -21,7 +21,7 @@ const FormWrapper = styled.form`
   }
   #multiselect1 {
     // width:100%;
-    height: 100%;
+    height: 80px;
   }
 
   #multiselect1 .search-wrapper {
