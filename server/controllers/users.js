@@ -18,13 +18,14 @@ module.exports = {
       res.sendStatus(201);
     })
   },
-  getAllUsers: (req, res) => {
-    User.find({}, (err, docs) => {
-      if (err) {
-        throw err;
-      }
-
-      res.send(docs);
+  getSurfers: () => {
+    return new Promise((resolve, reject) => {
+      User.find({}, (err, docs) => {
+        if (err) {
+          reject(err);
+        }
+        resolve(docs);
+      })
     })
   },
 

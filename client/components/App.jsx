@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import GlobalStyle from './StyledComponents/GlobalStyle';
 import AppDiv from './StyledComponents/AppDiv';
+import LegendContainer from './StyledComponents/LegendContainer';
 import FormContainer from './StyledComponents/FormContainer';
 import Form from './Form.jsx';
+// import logo from '../images/waveLogo.png';
 // import waveLogo = require('../images/waveLogo.png';
 
 const App = () => {
@@ -19,8 +21,10 @@ const App = () => {
     <>
      <GlobalStyle />
       <AppDiv>
-        <h1>Swellio</h1>
-        <h5>Never miss a swell again!</h5>
+        <LegendContainer>
+          <h1>Swellio</h1>
+          <img src="./images/waveLogo.png" alt="logo"/>
+        </LegendContainer>
         <Form />
       </AppDiv>
     </>

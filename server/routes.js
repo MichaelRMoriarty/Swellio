@@ -4,7 +4,6 @@ const { addUser, getAllUsers, deleteUserByPhone } = require('./controllers/users
 
 router.get('/nearby', getConditions);
 router.post('/user', addUser);
-router.get('/users', getAllUsers );
 router.delete('/user', deleteUserByPhone);
 
 module.exports = router;
