@@ -5,19 +5,33 @@ const FormWrapper = styled.form`
   flex-direction: column;
   width: 50%;
   background-color: white;
-  border: 1px solid black;
+  border: none;
   padding: 10px;
-  border-radius: 4px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 
   label {
-    width: 100%;
+    width: 96%;
     height: 60px;
     // padding: 10px;
     // padding-right: 18px;
+    margin: 10px;
+    :focus {
+      outline: none;
+    };
   }
+
   input {
     width: 100%;
     height: 100%;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-size: 16px;
+    text-align: center;
+    :focus {
+      outline: none;
+    };
   }
   #multiselect1 {
     // width:100%;
@@ -33,12 +47,24 @@ const FormWrapper = styled.form`
   //   width:100%;
   // }
   .selector {
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    cursor: pointer;
   }
 
   button {
-    height: 20px;
+    color: white;
+    font-size: 16px;
+    height: 50px;
+    background: linear-gradient(to left, #32b4dd, #16d0ff, #32b4dd);
+    border-radius: 10px;
+    border: none;
+    &:hover {
+      background: #32b4dd;
+      cursor: pointer;
+    }
+
+
   }
 `;
 

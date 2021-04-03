@@ -15,6 +15,5 @@ const run = async function() {
     sendText(conditions, surfer)
   }))
 }
-
 module.exports = run;
 

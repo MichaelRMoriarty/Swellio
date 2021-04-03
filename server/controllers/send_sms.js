@@ -25,7 +25,7 @@ module.exports = {
       }
 
       if (meetsStandards.length < 1) {
-        return;
+        resolve(null);
       }
 
       let body = `Heads up, ${name}! The waves are ${meetsStandards[0][1]} at ${meetsStandards[0][0]}`;
