@@ -4,12 +4,13 @@ import { Multiselect } from 'multiselect-react-dropdown';
 import FormContainer from './StyledComponents/FormContainer.js';
 import FormWrapper from './StyledComponents/FormWrapper.js';
 
-const Form = () => {
+const Form = ({ setSuccessInfo }) => {
   const [ name, setName ] = useState('');
   const [ email, setEmail ] = useState('');
   const [ phone, setPhone ] = useState('');
   const [ spots, setSpots ] = useState([]);
-  const [ condition, setCondition ] = useState('');
+  const [ condition, setCondition ] = useState({});
+
 
   const conditions = [
     { id: 4, name: 'POOR to FAIR' },
@@ -70,11 +71,13 @@ const Form = () => {
   }
 
   const onSelectMulti = (selectedList, selectedItem) => {
+    console.log(selectedList);
     setSpots(selectedList);
   }
 
   const onSelectSingle = (selectedList, selectedItem) => {
-    setCondition(selectedItem.id);
+    console.log(selectedItem);
+    setCondition(selectedItem);
   }
 
   const onRemove = (selectedList, selectedItem) => {
@@ -88,17 +91,23 @@ const Form = () => {
       email: email,
       phone: phone,
       spots: spots,
-      condition: condition
+      condition: condition.id
     }
-
-    axios.post('/user', data, (err, res) => {
-      if (err) {
-        throw err;
+    setSuccessInfo({
+      page: 2,
+      info: {
+        spots: spots,
+        condition: condition.name
       }
+    });
+    // axios.post('/user', data, (err, res) => {
+    //   if (err) {
+    //     throw err;
+    //   }
 
-      console.log('success!');
-      return;
-    })
+    //   setPage(2);
+    //   return;
+    // }).then(() => setPage(2));
   };
 
   return(

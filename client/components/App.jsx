@@ -4,9 +4,15 @@ import AppDiv from './StyledComponents/AppDiv';
 import LegendContainer from './StyledComponents/LegendContainer';
 import FormContainer from './StyledComponents/FormContainer';
 import Form from './Form.jsx';
+import Sucess from './Success.jsx';
 
 
 const App = () => {
+  const [ successInfo, setSuccessInfo ] = useState({
+    page: 1,
+    spots: [],
+    condition: ''
+  });
   return(
     <>
      <GlobalStyle />
@@ -15,7 +21,8 @@ const App = () => {
           <h1>Swellio</h1>
           <img src="./images/waveLogo.png" alt="logo"/>
         </LegendContainer>
-        <Form />
+        {successInfo.page === 1 && <Form setSuccessInfo={setSuccessInfo} />}
+        {successInfo.page === 2 && <Sucess info={successInfo.info} />}
       </AppDiv>
     </>
   );
