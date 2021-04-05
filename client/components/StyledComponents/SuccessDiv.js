@@ -12,12 +12,12 @@ const SuccessDiv = styled.div`
 
   h1 {
     text-align: center;
-    color: #198aed;
+    color: #0971f4;
   }
 
   p {
     line-height: 30px;
-    color: #198aed;
+    color: #0971f4;
   }
   `
 

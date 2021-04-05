@@ -4,7 +4,7 @@ const LandingDiv = styled.div`
   // display: flex;
   // flex-direction: column;
   width: 30%;
-  color: #198aed;
+  color: #0971f4;
   background-color: white;
   border: none;
   padding: 10px;
