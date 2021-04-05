@@ -1,24 +1,25 @@
 import styled from 'styled-components';
 
-const SuccessDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 50%;
+const LandingDiv = styled.div`
+  // display: flex;
+  // flex-direction: column;
+  width: 30%;
+  color: #198aed;
   background-color: white;
   border: none;
   padding: 10px;
+  margin: 10px;
   border-radius: 10px;
+  // justify-content: space-evenly;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 
   h1 {
     text-align: center;
-    color: #198aed;
   }
 
-  p {
+  li {
     line-height: 30px;
-    color: #198aed;
   }
   `
 
-  export default SuccessDiv;
+  export default LandingDiv;

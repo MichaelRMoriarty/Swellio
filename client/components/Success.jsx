@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// import GlobalStyle from './StyledComponents/GlobalStyle';
-// import AppDiv from './StyledComponents/AppDiv';
 import FormContainer from './StyledComponents/FormContainer';
 import SuccessDiv from './StyledComponents/SuccessDiv';
 

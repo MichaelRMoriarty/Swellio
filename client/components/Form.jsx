@@ -71,12 +71,10 @@ const Form = ({ setSuccessInfo }) => {
   }
 
   const onSelectMulti = (selectedList, selectedItem) => {
-    console.log(selectedList);
     setSpots(selectedList);
   }
 
   const onSelectSingle = (selectedList, selectedItem) => {
-    console.log(selectedItem);
     setCondition(selectedItem);
   }
 
@@ -120,7 +118,7 @@ const Form = ({ setSuccessInfo }) => {
             <input type="text" value={email} onChange={handleEmailChange} placeholder="email"></input>
           </label>
           <label>
-            <input type="text" value={phone} onChange={handlePhoneChange} placeholder="(xxx)-xxx-xxxx"></input>
+            <input type="text" value={phone} onChange={handlePhoneChange} placeholder="phone"></input>
           </label>
           <div className="selector">
             <Multiselect id="multiselect1" onSelect={onSelectMulti} onRemove={onRemove} options={options} hidePlaceholder={true} displayValue="name"/>
