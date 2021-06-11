@@ -10,8 +10,6 @@ The inspiration for Swellio came when I missed a day of very good surf because I
 ![success page](https://github.com/MichaelRMoriarty/Swellio/blob/main/public/images/successPage.png)
 
 ## Tech/framework used
-Ex. -
-
 <b>Built with</b>
 - [React.js](https://reactjs.org/)
 - [MongoDb](https://www.mongodb.com/)
@@ -20,6 +18,5 @@ Ex. -
 
 
 ## License
-A short snippet describing the license (MIT, Apache etc)
 
-MIT © [Yourname]()
+ISC © [Michael Moriarty]()
