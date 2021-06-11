@@ -9,6 +9,9 @@ The inspiration for Swellio came when I missed a day of very good surf because I
 ![sign up](https://github.com/MichaelRMoriarty/Swellio/blob/main/public/images/formPage.png)
 ![success page](https://github.com/MichaelRMoriarty/Swellio/blob/main/public/images/successPage.png)
 
+## How it works
+Upon sign up, the user's information (name, email, phone, surf spots, surf conditions) is stored in a MongoDB collection. Via node-cron, an algorithm runs throughout the day that (1) fetches surf conditions for all breaks in Los Angeles from Surfline's API, (2) compares the live surf conditions to users' stored preferences, and (3) if the conditions are equal or better than a user's selected conditions at a selected break, sends a text notification to their phone via Twilio.   
+
 ## Tech/framework used
 <b>Built with</b>
 - [React.js](https://reactjs.org/)
