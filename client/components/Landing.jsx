@@ -38,7 +38,7 @@ const Landing = ({ setSuccessInfo }) => {
           <h1>Get notified</h1>
           <ul>
               <li>We'll keep track of the wave conditions at your selected spots </li>
-              <li>You will receive when the waves meet your conditions</li>
+              <li>You will receive a text when the waves meet your conditions</li>
             </ul>
         </LandingDiv>
         <LandingDiv>

@@ -4,7 +4,7 @@ import { Multiselect } from 'multiselect-react-dropdown';
 import FormContainer from './StyledComponents/FormContainer.js';
 import FormWrapper from './StyledComponents/FormWrapper.js';
 
-const Form = ({ setSuccessInfo }) => {
+const Form = ({ setSuccessInfo, setDisplayError }) => {
   const [ name, setName ] = useState('');
   const [ email, setEmail ] = useState('');
   const [ phone, setPhone ] = useState('');
@@ -91,21 +91,25 @@ const Form = ({ setSuccessInfo }) => {
       spots: spots,
       condition: condition.id
     }
-    setSuccessInfo({
-      page: 2,
-      info: {
-        spots: spots,
-        condition: condition.name
-      }
-    });
-    // axios.post('/user', data, (err, res) => {
-    //   if (err) {
-    //     throw err;
-    //   }
 
-    //   setPage(2);
-    //   return;
-    // }).then(() => setPage(2));
+    if (!spots[0] || !condition.id || name === '' || email === '' || phone === '') {
+      setDisplayError(true);
+      return;
+    }
+
+    axios.post('/user', data)
+    .then(function (response) {
+      setSuccessInfo({
+        page: 2,
+        info: {
+          spots: spots,
+          condition: condition.name
+        }
+      });;
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
   };
 
   return(
